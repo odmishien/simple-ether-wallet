@@ -25,3 +25,5 @@ ethereum:accounts
 ethereum:blocks
 session
 iron:router
+accounts-password
+accounts-ui

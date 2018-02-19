@@ -1,16 +1,26 @@
 <template name="walletLayout">
-  <nav class="navbar navbar-default">
-      <div class="container-fluid">
-            <div class="navbar-header">
-                    <a class="navbar-brand" href="{{pathFor 'dashboard'}}">Simple Ether Wallet</a>
-                          </div>
-                                <ul class="nav navbar-nav">
-                                        <li class="{{activeIfCurrent 'dashboard'}}"><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>
-                                                <li class="{{activeIfCurrent 'send'}}"><a href="{{pathFor 'send'}}">Send Ether</a></li>
-                                                      </ul>
-                                                          </div>
-                                                            </nav>
-                                                              <main class="container-fluid">
-                                                                  {{> yield}}
-                                                                    </main>
-                                                                    </template>
+<nav class = "navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+<a class="navbar-brand" href="{{pathFor'dashboard'}}">SimpleEtherWallet</a>
+</div>
+<ul class="nav navbar-nav">
+<li class="{{activeIfCurrent 'dashboard'}}"><a href="{{pathFor'dashboard'}}">Dashboard</a></li>
+<li class="{{activeIfCurrent 'send'}}"><a href="{{pathFor'send'}}">SendEther</a></li>
+<li>{{ >login }}</li>
+</ul>
+</div>
+</nav>
+<main class="container-fluid">
+  {{#if currentUser}}
+  {{ >yield }}
+  {{else}}
+  ログインしてください
+  {{/if}}
+</main>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">{{userMail}}</p>
+  </div>
+</footer>
+</template>
